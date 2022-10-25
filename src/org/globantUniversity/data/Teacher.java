@@ -1,9 +1,9 @@
 package org.globantUniversity.data;
 
 public abstract class Teacher {
-    private String name;
-    private double baseSalary;
-    private double salary;
+    protected String name;
+    protected double baseSalary;
+    protected double salary;
 
     public abstract double setSalary();
 
