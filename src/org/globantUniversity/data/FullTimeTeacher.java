@@ -5,7 +5,7 @@ public class FullTimeTeacher extends Teacher {
 
 
 
-    public FullTimeTeacher(String name, double salary, int experienceYears) {
+    public FullTimeTeacher(String name, int experienceYears) {
         this.name = name;
         this.salary = setSalary();
         this.experienceYears = experienceYears;

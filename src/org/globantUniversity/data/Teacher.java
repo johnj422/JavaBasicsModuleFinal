@@ -18,4 +18,13 @@ public abstract class Teacher {
     public double getSalary() {
         return salary;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "name='" + name + '\'' +
+                ", baseSalary=" + baseSalary +
+                ", salary=" + salary +
+                '}';
+    }
 }

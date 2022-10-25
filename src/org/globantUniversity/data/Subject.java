@@ -37,4 +37,14 @@ public class Subject {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "name='" + name + '\'' +
+                ", classRoom=" + classRoom +
+                ", studentsList=" + studentsList +
+                ", teacher=" + teacher +
+                '}';
+    }
 }
