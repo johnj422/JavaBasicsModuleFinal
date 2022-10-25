@@ -1,4 +1,5 @@
 package org.globantUniversity.data;
 
 public class PartTimeTeacher {
+
 }
