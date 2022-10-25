@@ -21,10 +21,8 @@ public abstract class Teacher {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                "name='" + name + '\'' +
-                ", baseSalary=" + baseSalary +
-                ", salary=" + salary +
-                '}';
+        return " " + name + " --" +
+                " BaseSalary: " + baseSalary + " --" +
+                " Salary: " + salary;
     }
 }

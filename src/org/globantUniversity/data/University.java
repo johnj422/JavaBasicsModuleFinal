@@ -37,4 +37,10 @@ public class University {
     public void addSubject(Subject subject) {
         subjectsList.add(subject);
     }
+    public void addAllStudentsToSubject(){
+        for (Subject subject : subjectsList) {
+            subject.addAllStudents(studentsList);
+        }
+
+    }
 }

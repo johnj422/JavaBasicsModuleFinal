@@ -4,7 +4,7 @@ public class Student {
     private String name;
     private int id;
     private int age;
-    private int counter = 0;
+    private static int counter = 0;
 
     public Student(String name, int age) {
         this.name = name;
@@ -39,10 +39,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", id=" + id +
-                ", age=" + age +
-                '}';
+        return "\n" + "   " + name + " --" + "Id: " + id + " --" + "Age: " + age;
     }
 }

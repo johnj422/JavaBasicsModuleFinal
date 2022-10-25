@@ -37,14 +37,19 @@ public class Subject {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+    public void addStudentToSubject(Student student) {
+        this.studentsList.add(student);
+    }
+    public void addAllStudents(ArrayList<Student> students) {
+        this.studentsList = students;
+    }
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "name='" + name + '\'' +
-                ", classRoom=" + classRoom +
-                ", studentsList=" + studentsList +
-                ", teacher=" + teacher +
-                '}';
+
+        return "Subject: " + name + "\n" +
+                "ClassRoom: " + classRoom + "\n" +
+                "Teacher: " + teacher + "\n" +
+                "Students: " + studentsList + "\n" + "\n";
     }
 }
