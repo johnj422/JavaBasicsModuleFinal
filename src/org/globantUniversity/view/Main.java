@@ -10,8 +10,6 @@ public class Main {
         University myUniversity = DataInitializer.loadUniversity();
         mainMenu(myUniversity);
         //testDataInit(myUniversity);
-
-
     }
 
     public static void mainMenu(University myUniversity) {
@@ -46,7 +44,6 @@ public class Main {
         for (int i = 0; i < myUniversity.teacherListSize(); i++){
             System.out.println(myUniversity.getTeacherByIndex(i));
         }
-
     }
     public static void printAllSubjects(University myUniversity) {
         Scanner scan = new Scanner(System.in);
@@ -61,12 +58,10 @@ public class Main {
                 option = scan.nextInt();
                 System.out.println(myUniversity.getSubjectByOption(option));
                 scan = new Scanner(System.in);
-
     }
     public static void testDataInit(University myUniversity){
         for (int i = 0; i < myUniversity.getSubjectsList().size(); i++) {
            System.out.println(myUniversity.getSubjectsList().get(i));
-
         }
     }
 }

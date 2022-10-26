@@ -11,7 +11,6 @@ public class DataInitializer {
         myUniversity.addAllStudentsToSubject();
         return myUniversity;
     }
-
     private static void loadTeachersToUniversity(University myUniversity) {
         Teacher teacher1 = new PartTimeTeacher("James Arthur",  24);
         Teacher teacher2 = new PartTimeTeacher("John Smith", 26);
@@ -21,7 +20,6 @@ public class DataInitializer {
         myUniversity.addTeacher(teacher2);
         myUniversity.addTeacher(teacher3);
         myUniversity.addTeacher(teacher4);
-
     }
     private static void loadSubjectsToUniversity(University myUniversity){
         Subject subject1 = new Subject("Maths", 1, myUniversity.assignTeacher(1));
@@ -32,7 +30,6 @@ public class DataInitializer {
         myUniversity.addSubject(subject2);
         myUniversity.addSubject(subject3);
         myUniversity.addSubject(subject4);
-
     }
 
     private static void loadStudentsToUniversity(University myUniversity) {
@@ -48,6 +45,5 @@ public class DataInitializer {
         myUniversity.addStudent(student4);
         myUniversity.addStudent(student5);
         myUniversity.addStudent(student6);
-
     }
 }

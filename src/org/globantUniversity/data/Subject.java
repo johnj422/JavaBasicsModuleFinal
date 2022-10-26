@@ -13,34 +13,27 @@ public class Subject {
         this.classRoom = classRoom;
         this.teacher = teacher;
     }
-
     public String getName() {
         return name;
     }
     public String getNameOptions() {
         return "\t" + classRoom + ". " + name;
     }
-
-
     public void setName(String name) {
         this.name = name;
     }
-
     public int getClassRoom() {
         return classRoom;
     }
-
     public void setClassRoom(int classRoom) {
         this.classRoom = classRoom;
     }
-
     public Teacher getTeacher() {
         return teacher;
     }
     public Student getStudentByIndex(int index) {
         return studentsList.get(index);
     }
-
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
@@ -53,7 +46,6 @@ public class Subject {
     public void fixedStudent(int index){
         getStudentByIndex(index);
     }
-
     @Override
     public String toString() {
 
