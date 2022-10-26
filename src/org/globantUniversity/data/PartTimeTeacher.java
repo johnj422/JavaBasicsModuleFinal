@@ -11,6 +11,7 @@ public class PartTimeTeacher extends Teacher{
 
     @Override
     public double setSalary() {
-        return baseSalary * activeHours;
+        this.salary = baseSalary * this.activeHours;
+        return salary;
     }
 }

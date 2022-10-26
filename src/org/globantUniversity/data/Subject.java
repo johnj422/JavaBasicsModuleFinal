@@ -17,6 +17,10 @@ public class Subject {
     public String getName() {
         return name;
     }
+    public String getNameOptions() {
+        return "\t" + classRoom + ". " + name;
+    }
+
 
     public void setName(String name) {
         this.name = name;
@@ -33,18 +37,29 @@ public class Subject {
     public Teacher getTeacher() {
         return teacher;
     }
+    public Student getStudentByIndex(int index) {
+        return studentsList.get(index);
+    }
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+    public void addStudentToSubject(Student student) {
+        this.studentsList.add(student);
+    }
+    public void addAllStudents(ArrayList<Student> students) {
+        this.studentsList = students;
+    }
+    public void fixedStudent(int index){
+        getStudentByIndex(index);
+    }
 
     @Override
     public String toString() {
-        return "Subject{" +
-                "name='" + name + '\'' +
-                ", classRoom=" + classRoom +
-                ", studentsList=" + studentsList +
-                ", teacher=" + teacher +
-                '}';
+
+        return "Subject: " + name + "\n" +
+                "ClassRoom: " + classRoom + "\n" +
+                "Teacher: " + teacher + "\n" +
+                "Students: " + studentsList + "\n" + "\n";
     }
 }

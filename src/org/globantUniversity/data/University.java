@@ -16,9 +16,31 @@ public class University {
     public ArrayList<Subject> getSubjectsList() {
         return subjectsList;
     }
+    public String getSubjectByClassroom(int classroom) {
+        Subject subjectToView = subjectsList.get(classroom);
+        return subjectToView.getNameOptions();
+
+    }
+    public Subject getSubjectByOption(int option) {
+        return subjectsList.get(option - 1);
+
+
+    }
+    public int subjectListSize() {
+        return subjectsList.size();
+    }
 
     public ArrayList<Teacher> getTeachersList() {
         return teachersList;
+    }
+    public Teacher getTeacherByIndex(int index) {
+        return teachersList.get(index);
+    }
+    public int teacherListSize() {
+        return teachersList.size();
+    }
+    public Student getStudentByIndex(int index) {
+        return studentsList.get(index);
     }
 
     public ArrayList<Student> getStudentsList() {
@@ -36,5 +58,11 @@ public class University {
     }
     public void addSubject(Subject subject) {
         subjectsList.add(subject);
+    }
+    public void addAllStudentsToSubject(){
+        for (Subject subject : subjectsList) {
+            subject.addAllStudents(studentsList);
+        }
+
     }
 }

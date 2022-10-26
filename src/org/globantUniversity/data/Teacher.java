@@ -2,7 +2,7 @@ package org.globantUniversity.data;
 
 public abstract class Teacher {
     protected String name;
-    protected double baseSalary;
+    protected double baseSalary = 5000;
     protected double salary;
 
     public abstract double setSalary();
@@ -21,10 +21,8 @@ public abstract class Teacher {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                "name='" + name + '\'' +
-                ", baseSalary=" + baseSalary +
-                ", salary=" + salary +
-                '}';
+        return " " + name + " \t" +
+                " BaseSalary: " + baseSalary + " \t" +
+                " Salary: " + salary;
     }
 }
