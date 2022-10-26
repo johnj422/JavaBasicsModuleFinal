@@ -37,8 +37,9 @@ public class Student {
         this.age = age;
     }
 
+
     @Override
     public String toString() {
-        return "\n" + "   " + name + " --" + "Id: " + id + " --" + "Age: " + age;
+        return "\n" + "   " + name + "\t\t" + "Id: " + id + "\t\t" + "Age: " + age;
     }
 }
