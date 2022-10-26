@@ -20,6 +20,9 @@ public class University {
     public ArrayList<Teacher> getTeachersList() {
         return teachersList;
     }
+    public Teacher getTeacherByIndex(int index) {
+        return teachersList.get(index);
+    }
 
     public ArrayList<Student> getStudentsList() {
         return studentsList;
