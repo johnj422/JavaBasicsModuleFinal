@@ -12,32 +12,18 @@ public class Student {
         this.id = 1 + counter;
         counter++;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getAge() {
         return age;
     }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-
     @Override
     public String toString() {
         return "\n" + "   " + name + "\t\t" + "Id: " + id + "\t\t" + "Age: " + age;
