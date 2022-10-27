@@ -8,7 +8,6 @@ public class DataInitializer {
         loadStudentsToUniversity(myUniversity);
         loadTeachersToUniversity(myUniversity);
         loadSubjectsToUniversity(myUniversity);
-        //myUniversity.addAllStudentsToSubject();
         return myUniversity;
     }
 
