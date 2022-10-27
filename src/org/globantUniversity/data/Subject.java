@@ -12,37 +12,28 @@ public class Subject {
         this.name = name;
         this.classRoom = classRoom;
         this.teacher = teacher;
+        this.studentsList = new ArrayList<>();
     }
-
     public String getName() {
         return name;
     }
-    public String getNameOptions() {
-        return "\t" + classRoom + ". " + name;
-    }
-
-
     public void setName(String name) {
         this.name = name;
     }
-
-    public int getClassRoom() {
-        return classRoom;
-    }
-
     public void setClassRoom(int classRoom) {
         this.classRoom = classRoom;
     }
-
-    public Teacher getTeacher() {
-        return teacher;
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
     public Student getStudentByIndex(int index) {
         return studentsList.get(index);
     }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public ArrayList<Student> getStudentsList() {
+        return studentsList;
+    }
+    public int getStudentsListSize(){
+        return studentsList.size();
     }
     public void addStudentToSubject(Student student) {
         this.studentsList.add(student);
@@ -50,10 +41,6 @@ public class Subject {
     public void addAllStudents(ArrayList<Student> students) {
         this.studentsList = students;
     }
-    public void fixedStudent(int index){
-        getStudentByIndex(index);
-    }
-
     @Override
     public String toString() {
 

@@ -12,57 +12,47 @@ public class University {
         teachersList = new ArrayList<>();
         studentsList = new ArrayList<>();
     }
-
-    public ArrayList<Subject> getSubjectsList() {
-        return subjectsList;
+    public String getSubjectNameByIndex(int index) {
+        Subject subjectToView = subjectsList.get(index);
+        return subjectToView.getName();
     }
-    public String getSubjectByClassroom(int classroom) {
-        Subject subjectToView = subjectsList.get(classroom);
-        return subjectToView.getNameOptions();
-
+    public Subject getSubjectByIndex(int index) {
+        return subjectsList.get(index);
     }
-    public Subject getSubjectByOption(int option) {
-        return subjectsList.get(option - 1);
-
-
-    }
-    public int subjectListSize() {
+    public int getSubjectListSize() {
         return subjectsList.size();
     }
-
+    public void addSubject(Subject subject) {
+        subjectsList.add(subject);
+    }
     public ArrayList<Teacher> getTeachersList() {
         return teachersList;
     }
     public Teacher getTeacherByIndex(int index) {
         return teachersList.get(index);
     }
-    public int teacherListSize() {
+    public int getTeacherListSize() {
         return teachersList.size();
-    }
-    public Student getStudentByIndex(int index) {
-        return studentsList.get(index);
-    }
-
-    public ArrayList<Student> getStudentsList() {
-        return studentsList;
-    }
-
-    public void addStudent(Student student) {
-        studentsList.add(student);
     }
     public void addTeacher(Teacher teacher) {
         teachersList.add(teacher);
     }
-    public Teacher assignTeacher(int value) {
-        return teachersList.get(value - 1);
+    public Teacher assignTeacher(int index) {
+        return teachersList.get(index);
     }
-    public void addSubject(Subject subject) {
-        subjectsList.add(subject);
+    public ArrayList<Student> getStudentsList() {
+        return studentsList;
+    }
+    public Student getStudentByIndex(int index) {
+        return studentsList.get(index);
+    }
+    public void addStudent(Student student) {
+        studentsList.add(student);
     }
     public void addAllStudentsToSubject(){
         for (Subject subject : subjectsList) {
             subject.addAllStudents(studentsList);
         }
-
     }
+
 }
