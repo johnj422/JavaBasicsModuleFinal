@@ -26,6 +26,6 @@ public class Student {
     }
     @Override
     public String toString() {
-        return "\n" + "   " + name + "\t\t" + "Id: " + id + "\t\t" + "Age: " + age;
+        return "\n" + "\t" + name + "\t\t" + "Id: " + id + "\t\t" + "Age: " + age;
     }
 }
