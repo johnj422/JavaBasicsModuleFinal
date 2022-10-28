@@ -2,6 +2,7 @@ package org.globantUniversity.view;
 
 import org.globantUniversity.data.Student;
 import org.globantUniversity.data.Subject;
+import org.globantUniversity.data.Teacher;
 import org.globantUniversity.data.University;
 import org.globantUniversity.persistence.DataInitializer;
 import java.util.Scanner;
@@ -21,10 +22,9 @@ public class Main {
             System.out.println("1. View teachers");
             System.out.println("2. View Subjects");
             System.out.println("3. Create New Student");
-            System.out.println("4. Delete Student");
-            System.out.println("5. Create New Subject");
-            System.out.println("6. View All Student Subjects");
-            System.out.println("7. Exit");
+            System.out.println("4. Create New Subject");
+            System.out.println("5. View All Student Subjects");
+            System.out.println("6. Exit");
             option = scan.nextInt();
             scan = new Scanner(System.in);
 
@@ -38,16 +38,22 @@ public class Main {
                 case 3:
                     createNewStudent(myUniversity);
                     break;
+                case 4:
+                    createNewSubject(myUniversity);
+                    break;
+                case 5:
+                    System.out.println("Test");
+                    break;
                 default:
                     System.out.println("Please enter a valid option");
                     printMainMenu(myUniversity);
             }
-        } while (option < 7);
+        } while (option < 6);
     }
 
     public static void printAllTeachers(University myUniversity){
         for (int i = 0; i < myUniversity.getTeacherListSize(); i++){
-            System.out.println(myUniversity.getTeacherByIndex(i));
+            System.out.println(" " + (i + 1) + ". " + myUniversity.getTeacherByIndex(i));
         }
     }
 
@@ -100,5 +106,51 @@ public class Main {
             System.out.println("\n The Student " + name + " has been successfully created and added to " + subjectToAdd.getName() + "\n");
         }
 
+    }
+
+    public static void createNewSubject (University myUniversity) {
+        Scanner scan = new Scanner(System.in);
+        String subjectName;
+        int classRoom;
+        Teacher teacher;
+        int option;
+        System.out.println("Please enter the name of the Subject to be created: \n");
+        subjectName = scan.nextLine();
+        scan = new Scanner(System.in);
+        System.out.println("Please enter the classroom number: ");
+        classRoom = scan.nextInt();
+        scan = new Scanner(System.in);
+        System.out.println("Please select the teacher for that subject: ");
+        printAllTeachers(myUniversity);
+        option = scan.nextInt();
+        scan = new Scanner(System.in);
+        int index = option - 1;
+        scan = new Scanner(System.in);
+        teacher = myUniversity.getTeacherByIndex(index);
+        Subject subject = new Subject(subjectName, classRoom, teacher);
+        myUniversity.addSubject(subject);
+        System.out.println("The Subject " + subjectName + " has been created with teacher " + teacher.getName()+ "\n");
+        System.out.println("Do you want to add some students to the Subject: " + subjectName + "?");
+        System.out.println(" 1. Yes");
+        System.out.println(" 2. No");
+        option = scan.nextInt();
+        scan = new Scanner(System.in);
+        int id;
+        Student student;
+        do {
+            System.out.println("Please enter Student´s ID: ");
+            id = scan.nextInt();
+            scan = new Scanner(System.in);
+            student = myUniversity.getStudentById(id);
+            if (student != null) {
+                subject.addStudentToSubject(student);
+                System.out.println("Well done " + student.getName() + " was successfully added to " + subjectName);
+            }
+            System.out.println("Do you want to add more Students to the Subject?");
+            System.out.println(" 1. Yes");
+            System.out.println(" 2. No");
+            option = scan.nextInt();
+
+        }while (option == 1);
     }
 }
