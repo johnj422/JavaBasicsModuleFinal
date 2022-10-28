@@ -32,7 +32,7 @@ public class Subject {
 
         return "Subject: " + name + "\t" +
                 "ClassRoom: " + classRoom + "\n" +
-                "Teacher: " + teacher + "\n" ;
+                "Teacher: " + teacher.getName() + "\n" ;
                 //"Students: " + studentsList + "\n" + "\n";
     }
 }

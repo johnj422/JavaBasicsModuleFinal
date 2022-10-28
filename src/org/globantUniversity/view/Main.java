@@ -19,15 +19,15 @@ public class Main {
         int option;
 
         do {
-            System.out.println("\n ** University's System **");
-            System.out.println(" ---------------------------");
+            System.out.println("\n ** Welcome to the University's System **");
+            System.out.println(" -----------------------------------------");
             System.out.println("1. View teachers");
             System.out.println("2. View Subjects");
             System.out.println("3. Create New Student");
             System.out.println("4. Create New Subject");
             System.out.println("5. View Student Subjects");
             System.out.println("6. Exit");
-            option = optionValidation(scan);
+            option = validateOption(scan);
             scan = new Scanner(System.in);
 
             switch (option) {
@@ -72,7 +72,7 @@ public class Main {
         for (int i = 0; i < myUniversity.getSubjectListSize(); i++){
             System.out.println("\t" + (i + 1) + ". " + myUniversity.getSubjectNameByIndex(i));
             }
-            option = optionValidation(scan);
+            option = validateOption(scan);
             scan = new Scanner(System.in);
             if (option == 0){
                 printMainMenu(myUniversity);
@@ -112,7 +112,7 @@ public class Main {
         scan = new Scanner(System.in);
         do {
             System.out.println("Please enter Student's Age: \n");
-            age = optionValidation(scan);
+            age = validateOption(scan);
             scan = new Scanner(System.in);
         } while (age == -1);
 
@@ -120,7 +120,7 @@ public class Main {
         for (int i = 0; i < myUniversity.getSubjectListSize(); i++){
             System.out.println("\t" + (i + 1) + ". " + myUniversity.getSubjectNameByIndex(i));
         }
-        subjectIndex = optionValidation(scan);
+        subjectIndex = validateOption(scan);
         scan = new Scanner(System.in);
         if (subjectIndex < 1 || subjectIndex > myUniversity.getSubjectListSize()){
             System.out.println("Please enter a valid Subject's number \n");
@@ -146,38 +146,41 @@ public class Main {
         System.out.println("Please enter the classroom number: ");
         classRoom = scan.nextInt();
         scan = new Scanner(System.in);
-        System.out.println("Please select the teacher for that subject: \n");
-        printAllTeachers(myUniversity);
-        option = scan.nextInt();
-        scan = new Scanner(System.in);
+        do {
+            System.out.println("Please select the teacher for that subject: \n");
+            printAllTeachers(myUniversity);
+            option = validateOption(scan);
+            scan = new Scanner(System.in);
+        } while (option < 0 || option > myUniversity.getTeacherListSize());
+
         int index = option - 1;
         scan = new Scanner(System.in);
         teacher = myUniversity.getTeacherByIndex(index);
         Subject subject = new Subject(subjectName, classRoom, teacher);
         myUniversity.addSubject(subject);
         System.out.println("The Subject " + subjectName + " has been created with teacher " + teacher.getName()+ "\n");
-        System.out.println("Do you want to add some students to the Subject: " + subjectName + "?");
-        System.out.println(" 1. Yes");
-        System.out.println(" 2. No");
-        option = scan.nextInt();
-        scan = new Scanner(System.in);
+        System.out.println("Please add some students to the Subject: " + subjectName + "\n");
+
         int id;
         Student student;
-        do {
-            System.out.println("Please select the Student: ");
+
+            System.out.println("Select the Student's ID: ");
             printAllStudents(myUniversity);
-            id = scan.nextInt();
+            id = validateOption(scan);
             scan = new Scanner(System.in);
             student = myUniversity.getStudentById(id);
-            if (student != null) {
+            if (student.getName() != null) {
                 subject.addStudentToSubject(student);
                 System.out.println("Well done " + student.getName() + " was successfully added to " + subjectName);
+                System.out.println("Do you want to add more Students to the Subject?");
+                System.out.println(" 1. Yes");
+                System.out.println(" 2. No");
+                option = scan.nextInt();
+            } else {
+                System.out.println("Please select a valid option");
             }
-            System.out.println("Do you want to add more Students to the Subject?");
-            System.out.println(" 1. Yes");
-            System.out.println(" 2. No");
-            option = scan.nextInt();
-        }while (option == 1);
+
+
     }
 
     public static void viewStudentsSubjects(University myUniversity) {
@@ -206,7 +209,7 @@ public class Main {
             }
         }
     }
-    public static int optionValidation(Scanner scan){
+    public static int validateOption(Scanner scan){
         int option = -1;
         if (scan.hasNextInt()){
             return option = scan.nextInt();
