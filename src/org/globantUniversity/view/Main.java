@@ -5,7 +5,6 @@ import org.globantUniversity.data.Subject;
 import org.globantUniversity.data.Teacher;
 import org.globantUniversity.data.University;
 import org.globantUniversity.persistence.DataInitializer;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -18,6 +17,7 @@ public class Main {
     public static void printMainMenu(University myUniversity) {
         Scanner scan = new Scanner(System.in);
         int option;
+
         do {
             System.out.println("\n ** University's System **");
             System.out.println(" ---------------------------");
@@ -67,25 +67,25 @@ public class Main {
         int option;
 
         System.out.println("Please enter the Subject´s number to view details: \n");
-
         for (int i = 0; i < myUniversity.getSubjectListSize(); i++){
             System.out.println("\t" + (i + 1) + ". " + myUniversity.getSubjectNameByIndex(i));
             }
             option = scan.nextInt();
             scan = new Scanner(System.in);
-            if (option < 1 || option > myUniversity.getSubjectListSize()){
+            if (option < 0 || option > myUniversity.getSubjectListSize()){
                 System.out.println("Please enter a valid Subject's number or 0 to exit \n");
                 option = scan.nextInt();
                 scan = new Scanner(System.in);
                 if (option == 0){
                     printMainMenu(myUniversity);
+                }else {
+                    int index = option -1;
+                    System.out.println(myUniversity.getSubjectByIndex(index));
                 }
-            } else {
+            }else{
                 int index = option -1;
                 System.out.println(myUniversity.getSubjectByIndex(index));
-
             }
-
     }
 
     public static void createNewStudent(University myUniversity){
@@ -94,6 +94,7 @@ public class Main {
         int age;
         int subjectIndex;
         Subject subjectToAdd;
+
         System.out.println("Please type Student's Full Name: \n");
         name = scan.nextLine();
         scan = new Scanner(System.in);
@@ -115,7 +116,6 @@ public class Main {
             subjectToAdd.addStudentToSubject(student);
             System.out.println("\n The Student " + name + " has been successfully created and added to " + subjectToAdd.getName() + "\n");
         }
-
     }
 
     public static void createNewSubject (University myUniversity) {
@@ -160,7 +160,6 @@ public class Main {
             System.out.println(" 1. Yes");
             System.out.println(" 2. No");
             option = scan.nextInt();
-
         }while (option == 1);
     }
 
