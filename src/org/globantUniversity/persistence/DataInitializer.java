@@ -14,8 +14,8 @@ public class DataInitializer {
     private static void loadStudentsToUniversity(University myUniversity) {
         Student student1 = new Student("John Arango", 41);
         Student student2 = new Student("Mary Ann", 42);
-        Student student3 = new Student("Jaime Sarmiento", 43);
-        Student student4 = new Student("Carlos Rodriguez", 44);
+        Student student3 = new Student("Jaime Saenz", 43);
+        Student student4 = new Student("Carlos Perez", 44);
         Student student5 = new Student("Maria Anders", 45);
         Student student6 = new Student("Mariana Sanchez", 46);
         myUniversity.addStudent(student1);

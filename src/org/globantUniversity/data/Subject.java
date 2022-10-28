@@ -30,9 +30,9 @@ public class Subject {
     @Override
     public String toString() {
 
-        return "Subject: " + name + "\n" +
+        return "Subject: " + name + "\t" +
                 "ClassRoom: " + classRoom + "\n" +
-                "Teacher: " + teacher + "\n" +
-                "Students: " + studentsList + "\n" + "\n";
+                "Teacher: " + teacher.getName() + "\n" ;
+                //"Students: " + studentsList + "\n" + "\n";
     }
 }
