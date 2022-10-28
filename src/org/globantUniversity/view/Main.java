@@ -5,6 +5,8 @@ import org.globantUniversity.data.Subject;
 import org.globantUniversity.data.Teacher;
 import org.globantUniversity.data.University;
 import org.globantUniversity.persistence.DataInitializer;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -23,7 +25,7 @@ public class Main {
             System.out.println("2. View Subjects");
             System.out.println("3. Create New Student");
             System.out.println("4. Create New Subject");
-            System.out.println("5. View All Student Subjects");
+            System.out.println("5. View Student Subjects");
             System.out.println("6. Exit");
             option = scan.nextInt();
             scan = new Scanner(System.in);
@@ -42,7 +44,10 @@ public class Main {
                     createNewSubject(myUniversity);
                     break;
                 case 5:
-                    System.out.println("Test");
+                    viewStudentsSubjects(myUniversity);
+                    break;
+                case 6:
+                    System.out.println("***** Goodbye! *****");
                     break;
                 default:
                     System.out.println("Please enter a valid option");
@@ -69,7 +74,12 @@ public class Main {
             option = scan.nextInt();
             scan = new Scanner(System.in);
             if (option < 1 || option > myUniversity.getSubjectListSize()){
-                System.out.println("Please enter a valid Subject's number \n");
+                System.out.println("Please enter a valid Subject's number or 0 to exit \n");
+                option = scan.nextInt();
+                scan = new Scanner(System.in);
+                if (option == 0){
+                    printMainMenu(myUniversity);
+                }
             } else {
                 int index = option -1;
                 System.out.println(myUniversity.getSubjectByIndex(index));
@@ -152,5 +162,31 @@ public class Main {
             option = scan.nextInt();
 
         }while (option == 1);
+    }
+
+    public static void viewStudentsSubjects(University myUniversity) {
+        Scanner scan = new Scanner(System.in);
+        int id;
+        String studentSearched = "";
+        ArrayList<String> studentsSubjects = new ArrayList<String>();
+
+        System.out.println("Please enter the Student's ID you want to consult: ");
+        id = scan.nextInt();
+        for (Subject subject: myUniversity.getSubjectsList()) {
+            for (Student student: subject.getStudentsList()){
+                if (student.getId() == id) {
+                    studentSearched = student.getName();
+                    studentsSubjects.add(subject.getName());
+                }
+            }
+        }
+        if (studentsSubjects.size() == 0) {
+            System.out.println("Student with ID: " + id + " not found");
+        } else{
+            System.out.println("Student " + studentSearched + " is enrolled in: \n");
+            for (String subject: studentsSubjects){
+                System.out.println(" --" + subject);
+            }
+        }
     }
 }
