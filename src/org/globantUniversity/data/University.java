@@ -46,6 +46,9 @@ public class University {
         teachersList.add(teacher);
     }
 
+    public int getStudentsListSize() {
+        return studentsList.size();
+    }
     public Student getStudentByIndex(int index) {
         return studentsList.get(index);
     }
