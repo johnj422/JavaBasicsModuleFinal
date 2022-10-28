@@ -8,7 +8,4 @@ public abstract class Teacher {
     public String getName() {
         return name;
     }
-    public double getBaseSalary() {
-        return baseSalary;
-    }
 }

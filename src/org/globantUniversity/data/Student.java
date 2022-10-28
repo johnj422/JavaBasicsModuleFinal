@@ -19,15 +19,11 @@ public class Student {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
+
     public int getId() {
         return id;
     }
-    public int getAge() {
-        return age;
-    }
+
     @Override
     public String toString() {
         return "\n" + "\t" + name + "\t\t" + "Id: " + id + "\t\t" + "Age: " + age;

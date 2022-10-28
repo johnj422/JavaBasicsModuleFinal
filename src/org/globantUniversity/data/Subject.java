@@ -14,24 +14,19 @@ public class Subject {
         this.teacher = teacher;
         this.studentsList = new ArrayList<>();
     }
+
     public String getName() {
         return name;
     }
-    public Student getStudentByIndex(int index) {
-        return studentsList.get(index);
-    }
+
     public ArrayList<Student> getStudentsList() {
         return studentsList;
     }
-    public int getStudentsListSize(){
-        return studentsList.size();
-    }
+
     public void addStudentToSubject(Student student) {
         this.studentsList.add(student);
     }
-    public void addAllStudents(ArrayList<Student> students) {
-        this.studentsList = students;
-    }
+
     @Override
     public String toString() {
 
