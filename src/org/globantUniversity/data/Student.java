@@ -12,6 +12,10 @@ public class Student {
         this.id = 1 + counter;
         counter++;
     }
+
+    public Student() {
+    }
+
     public String getName() {
         return name;
     }

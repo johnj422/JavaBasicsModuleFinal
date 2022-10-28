@@ -46,6 +46,15 @@ public class University {
     public Student getStudentByIndex(int index) {
         return studentsList.get(index);
     }
+    public Student getStudentById(int id) {
+        Student student = new Student();
+        for (Student studentInList : studentsList) {
+            if (studentInList.getId() == id) {
+                student = studentInList;
+            }
+        }
+        return student;
+    }
     public void addStudent(Student student) {
         studentsList.add(student);
     }

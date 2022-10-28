@@ -17,15 +17,6 @@ public class Subject {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setClassRoom(int classRoom) {
-        this.classRoom = classRoom;
-    }
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
     public Student getStudentByIndex(int index) {
         return studentsList.get(index);
     }
