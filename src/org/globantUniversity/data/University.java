@@ -19,6 +19,11 @@ public class University {
     public Subject getSubjectByIndex(int index) {
         return subjectsList.get(index);
     }
+
+    public ArrayList<Subject> getSubjectsList() {
+        return subjectsList;
+    }
+
     public int getSubjectListSize() {
         return subjectsList.size();
     }
