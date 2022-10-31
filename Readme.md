@@ -42,4 +42,5 @@ a cellphone photo)
     
 ### UML
 
-[![Java-Basics-Module-Final-Exercise-1.png](https://i.postimg.cc/fThNcN59/Java-Basics-Module-Final-Exercise-1.png)](https://postimg.cc/SjV34HBS)
+![image](https://user-images.githubusercontent.com/97705831/199109908-3cfe349d-9dd3-4a6f-a3f5-ea5a0200a039.png)
+
