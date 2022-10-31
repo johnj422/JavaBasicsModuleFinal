@@ -23,8 +23,12 @@ public class Subject {
         return studentsList;
     }
 
-    public void addStudentToSubject(Student student) {
+    public boolean addStudentToSubject(Student student) {
+        if (studentsList.contains(student)){
+            return false;
+        }
         this.studentsList.add(student);
+        return true;
     }
 
     @Override
