@@ -8,6 +8,7 @@ public class FullTimeTeacher extends Teacher {
         this.experienceYears = experienceYears;
         this.baseSalary = 5000;
     }
+
     @Override
     public double calculateSalary() {
         return baseSalary * 1.1 * experienceYears;
