@@ -91,6 +91,7 @@ public class Main {
                 for (Student student: subject.getStudentsList()) {
                     System.out.println(student);
                 }
+                printMainMenu(myUniversity);
             }
     }
 
