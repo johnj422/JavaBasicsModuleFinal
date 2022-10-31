@@ -119,21 +119,25 @@ public class Main {
         } while (age == -1);
 
         System.out.println("Please select the number of the subject where the student is entering: ");
-        for (int i = 0; i < myUniversity.getSubjectListSize(); i++){
-            System.out.println("\t" + (i + 1) + ". " + myUniversity.getSubjectNameByIndex(i));
-        }
-        subjectIndex = validateOption(scan);
-        scan = new Scanner(System.in);
-        if (subjectIndex < 1 || subjectIndex > myUniversity.getSubjectListSize()){
-            System.out.println("Please enter a valid Subject's number \n");
-        } else {
-            int index = subjectIndex -1;
-            Student student = new Student(name, age);
-            myUniversity.addStudent(student);
-            subjectToAdd = myUniversity.getSubjectByIndex(index);
-            subjectToAdd.addStudentToSubject(student);
-            System.out.println("\n The Student " + name + " has been successfully created and added to " + subjectToAdd.getName() + "\n");
-        }
+
+        do {
+            for (int i = 0; i < myUniversity.getSubjectListSize(); i++){
+                System.out.println("\t" + (i + 1) + ". " + myUniversity.getSubjectNameByIndex(i));
+            }
+            subjectIndex = validateOption(scan);
+            scan = new Scanner(System.in);
+            if (subjectIndex < 1 || subjectIndex > myUniversity.getSubjectListSize()){
+                System.out.println("Please enter a valid Subject's number \n");
+            } else {
+                int index = subjectIndex -1;
+                Student student = new Student(name, age);
+                myUniversity.addStudent(student);
+                subjectToAdd = myUniversity.getSubjectByIndex(index);
+                subjectToAdd.addStudentToSubject(student);
+                System.out.println("\n The Student " + name + " has been successfully created and added to " + subjectToAdd.getName() + "\n");
+            }
+        } while (subjectIndex < 1 || subjectIndex > myUniversity.getSubjectListSize());
+
     }
 
     public static void createNewSubject (University myUniversity) {
