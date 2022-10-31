@@ -5,6 +5,7 @@ public abstract class Teacher {
     protected double baseSalary;
 
     public abstract double calculateSalary();
+
     public String getName() {
         return name;
     }
