@@ -150,7 +150,7 @@ public class Main {
         subjectName = scan.nextLine();
         scan = new Scanner(System.in);
         System.out.println("Please enter the classroom number: ");
-        classRoom = scan.nextInt();
+        classRoom = validateOption(scan);
         scan = new Scanner(System.in);
 
         do {
@@ -180,11 +180,13 @@ public class Main {
             if (student.getName() != null) {
                 if (subject.addStudentToSubject(student)){
                     System.out.println("Well done " + student.getName() + " was successfully added to " + subjectName);
-                    System.out.println("Do you want to add more Students to the Subject?");
-                    System.out.println(" 1. Yes");
-                    System.out.println(" 2. No");
-                    option = validateOption(scan);
-
+                    do {
+                        System.out.println("Do you want to add more Students to the Subject?");
+                        System.out.println(" 1. Yes");
+                        System.out.println(" 2. No");
+                        option = validateOption(scan);
+                        scan = new Scanner(System.in);
+                    } while (option == -1);
                 } else {
                     System.out.println("The student is already in the Subject \n");
                     option = 1;
