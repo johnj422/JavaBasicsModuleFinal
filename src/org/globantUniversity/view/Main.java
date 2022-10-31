@@ -187,7 +187,7 @@ public class Main {
                         System.out.println(" 2. No");
                         option = validateOption(scan);
                         scan = new Scanner(System.in);
-                    } while (option > 2 || option < -0);
+                    } while (option > 2 || option < 1);
                 } else {
                     System.out.println("The student is already in the Subject \n");
                     option = 1;
