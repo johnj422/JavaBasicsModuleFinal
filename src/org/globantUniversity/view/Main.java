@@ -15,6 +15,10 @@ public class Main {
         printMainMenu(myUniversity);
     }
 
+    /**
+     * Prints the principal menu for user to View Teachers, Subjects and Students. And to create Subjects and Students.
+     * @param myUniversity Is an instance of the University.
+     */
     public static void printMainMenu(University myUniversity) {
         Scanner scan = new Scanner(System.in);
         int option;
@@ -57,6 +61,10 @@ public class Main {
         } while (option < 6);
     }
 
+    /**
+     * Prints all teachers and their details, from the university, each one in one line.
+     * @param myUniversity Is an instance of the University.
+     */
     public static void printAllTeachers(University myUniversity){
         System.out.println("\t\t\t\t\t\t Teachers ");
         System.out.println("_____________________________________________________________");
@@ -65,6 +73,10 @@ public class Main {
         }
     }
 
+    /**
+     * Prints all subjects from the university, and a submenu to print subject's details and their students.
+     * @param myUniversity Is an instance of the University.
+     */
     public static void printAllSubjects(University myUniversity) {
         Scanner scan = new Scanner(System.in);
         int option;
@@ -100,6 +112,10 @@ public class Main {
             }
     }
 
+    /**
+     * Prints all students from the university, one student per line with its details.
+     * @param myUniversity Is an instance of the University.
+     */
     public static void printAllStudents(University myUniversity) {
         System.out.println("\t\t\t Students ");
         System.out.println("______________________________________");
@@ -109,6 +125,10 @@ public class Main {
         }
     }
 
+    /**
+     * Creates a new student and ads the student to the University and to a specific subject.
+     * @param myUniversity Is an instance of the University.
+     */
     public static void createNewStudent(University myUniversity){
         Scanner scan = new Scanner(System.in);
         String name;
@@ -150,6 +170,10 @@ public class Main {
 
     }
 
+    /**
+     * Creates a new subject, adds a teacher and existing students to the subject.
+     * @param myUniversity Is an instance of the University.
+     */
     public static void createNewSubject (University myUniversity) {
         Scanner scan = new Scanner(System.in);
         String subjectName;
@@ -210,6 +234,10 @@ public class Main {
         } while (option == 1);
     }
 
+    /**
+     * Prints the students list to select one from it, and returns its subjects.
+     * @param myUniversity Is an instance of the University.
+     */
     public static void viewStudentsSubjects(University myUniversity) {
         Scanner scan = new Scanner(System.in);
         int id;
@@ -239,6 +267,10 @@ public class Main {
         }
     }
 
+    /**
+     * Validates the scanner input to be sure that the input is an integer.
+     * @param scan Is an instance of a Scanner.
+     */
     public static int validateOption(Scanner scan){
         int option = -1;
 
