@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
         University myUniversity = DataInitializer.loadUniversity();
         printMainMenu(myUniversity);
@@ -69,14 +70,17 @@ public class Main {
         int option;
 
         System.out.println("Please enter the Subject´s number to view details: \n");
+
         for (int i = 0; i < myUniversity.getSubjectListSize(); i++){
             System.out.println("\t" + (i + 1) + ". " + myUniversity.getSubjectNameByIndex(i));
             }
             option = validateOption(scan);
             scan = new Scanner(System.in);
+
             if (option == 0){
                 printMainMenu(myUniversity);
             }
+
             if (option < 0 || option > myUniversity.getSubjectListSize()){
                 System.out.println("Please enter a valid Subject's number or 0 to exit \n");
                 printAllSubjects(myUniversity);
@@ -88,6 +92,7 @@ public class Main {
                 Subject subject = myUniversity.getSubjectByIndex(index);
                 System.out.println(subject);
                 System.out.println("Students: ");
+
                 for (Student student: subject.getStudentsList()) {
                     System.out.println(student);
                 }
@@ -98,6 +103,7 @@ public class Main {
     public static void printAllStudents(University myUniversity) {
         System.out.println("\t\t\t Students ");
         System.out.println("______________________________________");
+
         for (int i = 0; i < myUniversity.getStudentsListSize(); i++){
             System.out.println(myUniversity.getStudentByIndex(i));
         }
@@ -113,6 +119,7 @@ public class Main {
         System.out.println("Please type Student's Full Name: \n");
         name = scan.nextLine();
         scan = new Scanner(System.in);
+
         do {
             System.out.println("Please enter Student's Age: \n");
             age = validateOption(scan);
@@ -125,8 +132,10 @@ public class Main {
             for (int i = 0; i < myUniversity.getSubjectListSize(); i++){
                 System.out.println("\t" + (i + 1) + ". " + myUniversity.getSubjectNameByIndex(i));
             }
+
             subjectIndex = validateOption(scan);
             scan = new Scanner(System.in);
+
             if (subjectIndex < 1 || subjectIndex > myUniversity.getSubjectListSize()){
                 System.out.println("Please enter a valid Subject's number \n");
             } else {
@@ -178,9 +187,11 @@ public class Main {
             id = validateOption(scan);
             scan = new Scanner(System.in);
             student = myUniversity.getStudentById(id);
+
             if (student.getName() != null) {
                 if (subject.addStudentToSubject(student)){
                     System.out.println("Well done " + student.getName() + " was successfully added to " + subjectName);
+
                     do {
                         System.out.println("Do you want to add more Students to the Subject?");
                         System.out.println(" 1. Yes");
@@ -208,6 +219,7 @@ public class Main {
         System.out.println("Please select the Student's ID you want to consult: ");
         printAllStudents(myUniversity);
         id = scan.nextInt();
+
         for (Subject subject: myUniversity.getSubjectsList()) {
             for (Student student: subject.getStudentsList()){
                 if (student.getId() == id) {
@@ -216,6 +228,7 @@ public class Main {
                 }
             }
         }
+
         if (studentsSubjects.size() == 0) {
             System.out.println("Student with ID: " + id + " not found");
         } else{
@@ -228,6 +241,7 @@ public class Main {
 
     public static int validateOption(Scanner scan){
         int option = -1;
+
         if (scan.hasNextInt()){
             return option = scan.nextInt();
         } else {
