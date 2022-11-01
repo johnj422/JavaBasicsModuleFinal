@@ -9,6 +9,10 @@ public class PartTimeTeacher extends Teacher{
         this.baseSalary = 2000;
     }
 
+    /**
+     * Calculates teacher's base salary based on its activeHours.
+     * @return Teacher's base salary.
+     */
     @Override
     public double calculateSalary() {
         return baseSalary * this.activeHours;
