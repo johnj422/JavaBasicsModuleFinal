@@ -3,6 +3,11 @@ package org.globantUniversity.persistence;
 import org.globantUniversity.data.*;
 
 public class DataInitializer {
+
+    /**
+     * Loads students, teachers and subjects to a new instance of University.
+     * @return The new instance of University.
+     */
     public static University loadUniversity(){
         University myUniversity = new University();
         loadStudentsToUniversity(myUniversity);
@@ -11,6 +16,10 @@ public class DataInitializer {
         return myUniversity;
     }
 
+    /**
+     * Loads students to myUniversity.
+     * @param myUniversity Is an instance of the University.
+     */
     private static void loadStudentsToUniversity(University myUniversity) {
         Student student1 = new Student("John Arango", 41);
         Student student2 = new Student("Mary Ann", 42);
@@ -26,6 +35,10 @@ public class DataInitializer {
         myUniversity.addStudent(student6);
     }
 
+    /**
+     * Loads teachers to myUniversity.
+     * @param myUniversity Is an instance of the University.
+     */
     private static void loadTeachersToUniversity(University myUniversity) {
         Teacher teacher1 = new PartTimeTeacher("James Arthur",  24);
         Teacher teacher2 = new PartTimeTeacher("John Smith", 26);
@@ -37,6 +50,10 @@ public class DataInitializer {
         myUniversity.addTeacher(teacher4);
     }
 
+    /**
+     *Loads subjects t myUniversity, teachers and students to the subjects.
+     * @param myUniversity
+     */
     private static void loadSubjectsToUniversity(University myUniversity){
         Subject subject1 = new Subject("Maths", 1, myUniversity.getTeacherByIndex(0));
         Subject subject2 = new Subject("English", 2, myUniversity.getTeacherByIndex(1));
